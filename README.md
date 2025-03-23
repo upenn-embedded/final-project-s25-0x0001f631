@@ -64,20 +64,40 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 
 | ID     | Description                                                                                                                        |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| HRS-01 | A distance sensor shall be used for obstacle detection. The sensor shall detect obstacles at a maximum distance of at least 10 cm. |
-| HRS-02 | A noisemaker shall be inside the trap with a strength of at least 55 dB.                                                           |
-| HRS-03 | An electronic motor shall be used to reset the trap remotely and have a torque of 40 Nm in order to reset the trap mechanism.      |
-| HRS-04 | A camera sensor shall be used to capture images of the trap interior. The resolution shall be at least 480p.                       |
+| HRS-01 | A camera shall be used to find the target ramp. The resolution shall be 240x240 or higher.|
+| HRS-02 | A IR sensor shall be used to determine if a car is ready to enter the launcher. It will inform the processor using an analog signal. |
+| HRS-03 | A custom buck converter will step down 12V to a lower voltage given PWM from the processor. This stepped down output shall be used to power the motor. |
+| HRS-04 | An ultrasonic sensor shall be used to find the distance to the target ramp. The range of the ultrasonic sensor should be at least 300cm (for reasonably rad jumps). |
 
 ### 7. Bill of Materials (BOM)
 
 *What major components do you need and why? Try to be as specific as possible. Your Hardware & Software Requirements Specifications should inform your component choices.*
 
+Camera - Used to find the target ramp, and used to provide feedback for steering the launcher ramp to aim at target.
+
+Ultrasonic Sensor - Required to determine the distance the ramp is, which will determine speed of motor rotation.
+
+IR Sensor - Used to determine when a car has been placed on the ramp, informing the system that it needs to turn on.
+
+Motor - Used to generate speed for flywheel to launch car.
+
+Servos - One to rotate ramp up/down, one to rotate assembly left/right. These two are for aiming at the ramp. One to keep the car in place/let it go into the launcher.
+
+5V Power pack - Used to power servos and ATmega328PB.
+
+12V 23A batteries - Used to provide power to the motor. 
+
+Components for a buck converter (Transistor, inductor, capacitor) - Used to make buck converter. Ideally, these will be Detkin components. Not super on board with using a buck converter IC and soldering a dozen SMD parts...
+
 *In addition to this written response, copy the Final Project BOM Google Sheet and fill it out with your critical components (think: processors, sensors, actuators). Include the link to your BOM in this section.*
+
+
 
 ### 8. Final Demo Goals
 
 *How will you demonstrate your device on demo day? Will it be strapped to a person, mounted on a bicycle, require outdoor space? Think of any physical, temporal, and other constraints that could affect your planning.*
+
+Device will be demonstrated on the floor, in some area, where we can set up the hotwheels ramps. The launcher will launch a car successfully onto the target ramp. We would need to set up somewhere less populated, in order to not impede foot traffic, or otherwise demo at a time when the building is less populated.
 
 ### 9. Sprint Planning
 
