@@ -1,10 +1,10 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/WXeqVgks)
 # final-project-skeleton
 
-* Team Number:
-* Team Name:
-* Team Members:
-* GitHub Repository URL:
+* Team Number: 15
+* Team Name: 😱
+* Team Members: Kevin Yao, Emil Schaumburg
+* GitHub Repository URL: https://github.com/upenn-embedded/final-project-s25-0x0001f631
 * GitHub Pages Website URL: [for final submission]
 
 ## Final Project Proposal
@@ -16,6 +16,8 @@
 ### 2. Motivation
 
 *What is the problem that you are trying to solve? Why is this project interesting? What is the intended purpose?*
+
+Children around the world take up various common interests as they age. Many of these hobbies revolve around toys produced by mega-conglomerates, many of which pale in comparison to the fascinating world of Hot Wheels™. Kids dream of designing the coolest track, with tight twists and turns, loops, and most importantly, jumps. However, designing the perfect jump is an extraordinarily difficult task to do manually. One must have perfect aim, take into consideration the speed of the car as it becomes airborne, and control the angle of incidence as the wheels depart from the track. This is further limited by the speed of the Hot Wheels™ booster, which has no flexibility for adjustments. We begin the undertaking of our final project with the goal of constructing a booster which not only allows for adjustment of its speed, but will automatically adjust the aim of its track so that the Hot Wheels™ car will subsequently land the desired jump. This is interesting because it will entail fine-tuned motor control in order to land the jump, and requires appropriate input capture to determine where the desired endpoint of the jump is located.
 
 ### 3. System Block Diagram
 
