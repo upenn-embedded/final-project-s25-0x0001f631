@@ -81,10 +81,10 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 
 | Milestone  | Functionality Achieved | Distribution of Work |
 | ---------- | ---------------------- | -------------------- |
-| Sprint #1  |                        |                      |
-| Sprint #2  |                        |                      |
-| MVP Demo   |                        |                      |
-| Final Demo |                        |                      |
+| Sprint #1  |           (1) Buck convert for dc motor driver, (2) gears and base of launcher modeled and sent for printing, (3) camera communication, (4) servo ramp incline modeled and sent for printing             |  Kevin: 1, 3 Emil: 2, 4                    |
+| Sprint #2  |           (1) Camera servo feedback, (2) Ultrasonic sensor motor feedback, (3) IR sensor for car             |          Emil: 1, Kevin: 2,3            |
+| MVP Demo   |          (1) Mathematic model tweaking, (2) assembly integration            |          We will work together            |
+| Final Demo |          (1) Enclosure for entire system to make it look nice, (2) More model tweaking, (3) Demo test case setup              |         Kevin: 2, 3 Emil : 1            |
 
 **This is the end of the Project Proposal section. The remaining sections will be filled out based on the milestone schedule.**
 
