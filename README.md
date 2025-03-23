@@ -13,6 +13,8 @@
 
 *In a few sentences, describe your final project.*
 
+Our final project will be a custom hot wheels booster/launcher that is programmed to detect and land a jump of variable distance. The microcontroller will use a camera and ultrasonic sensor to determine the distance and orientation of the jump, using servo motors to rotate the booster and angle the ramp. It will use a dc motor to spin rubber wheels which will accelerate the car off of the ramp at a calculated speed in order to land the jump.
+
 ### 2. Motivation
 
 *What is the problem that you are trying to solve? Why is this project interesting? What is the intended purpose?*
@@ -22,6 +24,8 @@ Children around the world take up various common interests as they age. Many of 
 ### 3. System Block Diagram
 
 *Show your high level design, as done in WS1 and WS2. What are the critical components in your system? How do they communicate (I2C?, interrupts, ADC, etc.)? What power regulation do you need?*
+
+![image](blockdiagram.png)
 
 ### 4. Design Sketches
 
