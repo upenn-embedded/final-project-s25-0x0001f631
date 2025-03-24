@@ -31,6 +31,10 @@ Children around the world take up various common interests as they age. Many of 
 
 *What will your project look like? Do you have any critical design features? Will you need any special manufacturing techniques to achieve your vision, like power tools, laser cutting, or 3D printing?*
 
+![image](sketch.jpg)
+
+The wheels and gears for the booster will be 3D printed, as well as the attachments for the servos. The mounts for the ramp and the base of the contraption, as well as the attachments for the camera, ultrasonic sensor, etc. will be laser cut.
+
 ### 5. Software Requirements Specification (SRS)
 
 *Formulate key software requirements here. Think deeply on the design: What must your device do? How will you measure this during validation testing? Create 4 to 8 critical system requirements.*
@@ -39,22 +43,23 @@ Children around the world take up various common interests as they age. Many of 
 
 **5.1 Definitions, Abbreviations**
 
-Here, you will define any special terms, acronyms, or abbreviations you plan to use for hardware
+Target - tape of a unique color attached to the end ramp that will be used to aim the on-ramp.
+
+Vertical rotation servo - the servo attached to the on-ramp that angles it up and down.
+
+Horizontal rotation servo - the servo mounted to the base that rotates the entire booster left and right.
 
 **5.2 Functionality**
 
-| ID     | Description                                                                                                                                                                                                              |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| SRS-01 | The microcontroller shall read from the OV7670 camera over I2C every .5 seconds.                                                                                                              
-| SRS-02 | The microcontroller shall control the angles of the horizontal and vertical rotational servos in a feedback loop with the camera data.   
-
-| SRS-03 | The feedback loop in SRS-02 will exit when the target is in the correct position in the camera frame, at which point the microcontroller will send a trigger to the ultrasonic sensor.  
-
-| SRS-04 | The microcontroller will have input capture on the echo pin of the ultrasonic sensor to measure distance to the target.  
-
-| SRS-05 | When the ADC from the reflective IR sensor reads below a threshold value, the microcontroller will actuate the servo that holds the car in place.  |
-
+| ID     | Description                                                                                                                                                                     |
+|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SRS-01 | The microcontroller shall read from the OV7670 camera over I2C every 0.5 seconds.                                                                                               |
+| SRS-02 | The microcontroller shall control the angles of the horizontal and vertical rotational servos in a feedback loop with the camera data.                                          |
+| SRS-03 | The feedback loop in SRS-02 will exit when the target is in the correct position in the camera frame, at which point the microcontroller will send a trigger to the ultrasonic sensor. |
+| SRS-04 | The microcontroller will have input capture on the echo pin of the ultrasonic sensor to measure distance to the target.                                                         |
+| SRS-05 | ADC will be used to read from reflective IR sensor. When it reads below a threshold value, the microcontroller will actuate the servo that holds the car in place.                               |
 | SRS-06 | The microcontroller will send a PWM signal, the duty cycle of which will control the speed of the DC motor based on a predetermined equation that takes as input how far the jump is. |
+
 
 ### 6. Hardware Requirements Specification (HRS)
 
@@ -64,7 +69,7 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 
 **6.1 Definitions, Abbreviations**
 
-Here, you will define any special terms, acronyms, or abbreviations you plan to use for hardware
+Custom buck converter: consists of a MOSFET, diode, inductor, and capacitor used to regulate the voltage driving the DC motor.
 
 **6.2 Functionality**
 
