@@ -31,6 +31,8 @@ Children around the world take up various common interests as they age. Many of 
 
 *What will your project look like? Do you have any critical design features? Will you need any special manufacturing techniques to achieve your vision, like power tools, laser cutting, or 3D printing?*
 
+We will need 3D printing, mostly for our gear/flywheels.
+
 ### 5. Software Requirements Specification (SRS)
 
 *Formulate key software requirements here. Think deeply on the design: What must your device do? How will you measure this during validation testing? Create 4 to 8 critical system requirements.*
@@ -74,6 +76,8 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 | HRS-02 | A IR sensor shall be used to determine if a car is ready to enter the launcher. It will inform the processor using an analog signal. |
 | HRS-03 | A custom buck converter will step down 12V to a lower voltage given PWM from the processor. This stepped down output shall be used to power the motor. |
 | HRS-04 | An ultrasonic sensor shall be used to find the distance to the target ramp. The range of the ultrasonic sensor should be at least 300cm (for reasonably rad jumps). |
+| HRS-05 | A servo will be used to adjust the ramp height up and down. A similar servo will be used to hold the car in place, then rotate to allow the car into the launcher. |
+| HRS-06 | A servo will be used to adjust the assembly left and right. |
 
 ### 7. Bill of Materials (BOM)
 
