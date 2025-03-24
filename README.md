@@ -79,6 +79,8 @@ Custom buck converter: consists of a MOSFET, diode, inductor, and capacitor used
 | HRS-02 | A IR sensor shall be used to determine if a car is ready to enter the launcher. It will inform the processor using an analog signal. |
 | HRS-03 | A custom buck converter will step down 12V to a lower voltage given PWM from the processor. This stepped down output shall be used to power the motor. |
 | HRS-04 | An ultrasonic sensor shall be used to find the distance to the target ramp. The range of the ultrasonic sensor should be at least 300cm (for reasonably rad jumps). |
+| HRS-05 | A servo will be used to adjust the ramp height up and down. A similar servo will be used to hold the car in place, then rotate to allow the car into the launcher. |
+| HRS-06 | A servo will be used to adjust the assembly left and right. |
 
 ### 7. Bill of Materials (BOM)
 
