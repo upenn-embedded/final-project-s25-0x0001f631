@@ -97,7 +97,7 @@ Components for a buck converter (Transistor, inductor, capacitor) - Used to make
 
 *In addition to this written response, copy the Final Project BOM Google Sheet and fill it out with your critical components (think: processors, sensors, actuators). Include the link to your BOM in this section.*
 
-
+https://docs.google.com/spreadsheets/d/1UzwNoVtzNW1yKDXhutoQyCoNw-ererVx3sm3JbrfIHA/edit?usp=sharing
 
 ### 8. Final Demo Goals
 
