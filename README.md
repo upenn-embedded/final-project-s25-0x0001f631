@@ -45,10 +45,16 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 
 | ID     | Description                                                                                                                                                                                                              |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| SRS-01 | The IMU 3-axis acceleration will be measured with 16-bit depth every 100 milliseconds +/-10 milliseconds                                                                                                                 |
-| SRS-02 | The distance sensor shall operate and report values at least every .5 seconds.                                                                                                                                           |
-| SRS-03 | Upon non-nominal distance detected (i.e., the trap mechanism has changed at least 10 cm from the nominal range), the system shall be able to detect the change and alert the user in a timely manner (within 5 seconds). |
-| SRS-04 | Upon a request from the user, the system shall get an image from the internal camera and upload the image to the user system within 10s.                                                                                 |
+| SRS-01 | The microcontroller shall read from the OV7670 camera over I2C every .5 seconds.                                                                                                              
+| SRS-02 | The microcontroller shall control the angles of the horizontal and vertical rotational servos in a feedback loop with the camera data.   
+
+| SRS-03 | The feedback loop in SRS-02 will exit when the target is in the correct position in the camera frame, at which point the microcontroller will send a trigger to the ultrasonic sensor.  
+
+| SRS-04 | The microcontroller will have input capture on the echo pin of the ultrasonic sensor to measure distance to the target.  
+
+| SRS-05 | When the ADC from the reflective IR sensor reads below a threshold value, the microcontroller will actuate the servo that holds the car in place.  |
+
+| SRS-06 | The microcontroller will send a PWM signal, the duty cycle of which will control the speed of the DC motor based on a predetermined equation that takes as input how far the jump is. |
 
 ### 6. Hardware Requirements Specification (HRS)
 
