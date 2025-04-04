@@ -129,9 +129,40 @@ Device will be demonstrated on the floor, in some area, where we can set up the 
 
 ### Last week's progress
 
+Base machined, most parts arrived
+
+Buck converter made, still need some tweaks, but stepping verified
+
+Mounted IR sensor
+
+Mounted servo
+
+Power supply verified
+
+Motor verified
+
 ### Current state of project
 
+Assembly printed, some parts mounted, but most independently verified.
+
+![](M1_1.jpg)
+![](M1_2.jpg)
+![](M1_3.jpg)
+![](M1_4.jpg)
+
+https://drive.google.com/file/d/1tKqQsuc8wZqvENJAGzmwVWnDV7s10e5J/view?usp=sharing
+
 ### Next week's plan
+
+Reprint gears
+
+Configure camera (Raspi + comm with ATmega) (Camera gotten did not work)
+
+Tweak buck converter to ensure proper operation
+
+Make sure buck does not fry ATmega (back voltage / ground shenanigans)
+
+Get motor to spin gears
 
 ## Sprint Review #2
 
