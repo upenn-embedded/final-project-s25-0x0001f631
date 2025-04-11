@@ -168,9 +168,33 @@ Get motor to spin gears
 
 ### Last week's progress
 
+Turns out the buck converter was a waste of time; Switched to PWM as BJT gate for power modulation.
+
+Got the motors on the launcher, they work!
+
+Got ball bearings attached
+
+Used ATmega to generate PWM signal to spin motors: car launched. 
+
+Car acceleration confirmed.
+
+Raspi has program that can find bounding box for given color. 
+
+ATmega should be able to interface with the ultrasonic device.
+
+Precise control of servos, interfacing with IR sensor works.
+
 ### Current state of project
 
 ### Next week's plan
+
+Launch car using higher power (were using the Detkin power supply, which has low(er) limits (than the wall adapter we plan on using))
+
+Get SPI working so we can send bounding box to ATmega.
+
+Perfboard for all the motor powering stuff (and maybe all the sensors)
+
+Integration of sensors.
 
 ## MVP Demo
 
