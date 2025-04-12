@@ -186,6 +186,8 @@ Precise control of servos, interfacing with IR sensor works.
 
 ### Current state of project
 
+https://drive.google.com/file/d/1GDbujAaHh5vkGAE1w357TcFrnMiB1Vt1/view?usp=sharing
+
 ### Next week's plan
 
 Launch car using higher power (were using the Detkin power supply, which has low(er) limits (than the wall adapter we plan on using))
