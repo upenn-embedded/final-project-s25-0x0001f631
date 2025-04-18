@@ -201,19 +201,44 @@ Integration of sensors.
 ## MVP Demo
 
 1. Show a system block diagram & explain the hardware implementation.
+
+https://docs.google.com/presentation/d/1GcbwykO9LemA98kKRiCxgUSrDAbUXj3kivS9V8kuuuM/edit?usp=sharing
+
+Motors are powered by wall outlet supply, and the connection is controlled by a PWM signal from our ATmega. 5V from the power pack supplies power for all other peripherals. Raspi captures images and processes important information we need, then sends it to ATmega via SPI. ATmega adjusts the direction our launcher is facing and the launcher ramp angle, as well as controls when the car is released, using servos, which it controls by adjusting duty cycles of PWMs.
+
 2. Explain your firmware implementation, including application logic and critical drivers you've written.
 3. Demo your device.
+
+https://drive.google.com/file/d/11PSLujxHKE1kDW2zSsZM_qNfQezweRF4/view?usp=sharing
+
 4. Have you achieved some or all of your Software Requirements Specification (SRS)?
+
+https://docs.google.com/presentation/d/1GcbwykO9LemA98kKRiCxgUSrDAbUXj3kivS9V8kuuuM/edit?usp=sharing
+
+https://drive.google.com/file/d/11cNWjkLC-9fmkGsV-uSUYCbFoN791z45/view?usp=sharing
 
    1. Show how you collected data and the outcomes.
 5. Have you achieved some or all of your Hardware Requirements Specification (HRS)?
+
+https://docs.google.com/presentation/d/1GcbwykO9LemA98kKRiCxgUSrDAbUXj3kivS9V8kuuuM/edit?usp=sharing
+
+https://drive.google.com/file/d/11KaJIAQd3A7mYkcYYosqNrWWp6pOp3-R/view?usp=sharing
+
+https://drive.google.com/file/d/11LCYmlZeDFXLw2l9yC5v5ObOC3PMB_1I/view?usp=sharing
 
    1. Show how you collected data and the outcomes.
 6. Show off the remaining elements that will make your project whole: mechanical casework, supporting graphical user interface (GUI), web portal, etc.
 7. What is the riskiest part remaining of your project?
 
+Possibly power components for motor shorting due to being too close to each other on the perfboard. (arcing?)
+
    1. How do you plan to de-risk this?
+
+   Taping over the perfboard after we are done with it to prevent contact.
+
 8. What questions or help do you need from the teaching team?
+
+Seems like our parts (servos) don't always work at 5V (even though they should). They seem to work fine at 6V though. What would be the best way to supply 6V (I assume we can't get new parts in time)?
 
 ## Final Project Report
 
