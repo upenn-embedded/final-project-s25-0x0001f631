@@ -64,7 +64,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="Jz8lrj1UflUqtzo1-eNt-5" value="Batteries, 12V" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="Jz8lrj1UflUqtzo1-eNt-5" value="Wall Supply, 24V" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="670" y="190" width="110" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Jz8lrj1UflUqtzo1-eNt-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Jz8lrj1UflUqtzo1-eNt-8" target="Jz8lrj1UflUqtzo1-eNt-1" edge="1">
@@ -72,12 +72,12 @@
             <mxPoint x="150" y="270" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Jz8lrj1UflUqtzo1-eNt-20" value="I2C" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Jz8lrj1UflUqtzo1-eNt-9" vertex="1" connectable="0">
-          <mxGeometry x="0.004" y="3" relative="1" as="geometry">
+        <mxCell id="dgZHM5HmqyEmlAfBBc0V-5" value="SPI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Jz8lrj1UflUqtzo1-eNt-9">
+          <mxGeometry x="-0.0691" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Jz8lrj1UflUqtzo1-eNt-8" value="Camera" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="Jz8lrj1UflUqtzo1-eNt-8" value="Raspi" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="110" y="360" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Jz8lrj1UflUqtzo1-eNt-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Jz8lrj1UflUqtzo1-eNt-10" target="Jz8lrj1UflUqtzo1-eNt-1" edge="1">
@@ -129,6 +129,9 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="dgZHM5HmqyEmlAfBBc0V-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Jz8lrj1UflUqtzo1-eNt-17" target="Jz8lrj1UflUqtzo1-eNt-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="Jz8lrj1UflUqtzo1-eNt-17" value="Power Pack 5V" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="190" y="460" width="120" height="60" as="geometry" />
         </mxCell>
@@ -143,6 +146,14 @@
         </mxCell>
         <mxCell id="ns45NZVY-JtJUFJJEqJq-14" value="&lt;div&gt;DC Motor&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="540" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dgZHM5HmqyEmlAfBBc0V-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="dgZHM5HmqyEmlAfBBc0V-1" target="Jz8lrj1UflUqtzo1-eNt-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dgZHM5HmqyEmlAfBBc0V-1" value="Camera" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="10" y="260" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
