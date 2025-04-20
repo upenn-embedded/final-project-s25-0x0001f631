@@ -204,14 +204,13 @@
      enable_timer0_pwm();
      sei();
      
+     printf("Loop started.\n");
+ 
      //move servos to initial positions
-     printf("Moving ROT servo straight.\n");
      enable_servo(ROT_SERVO_PIN);
      servo_move(90);
      _delay_ms(1000);
-     printf("Finished ROT servo.\n");
      
-     printf("Loop started.\n");
      
      while (1) {
          if (state == 0) { //waiting for car to be placed
@@ -222,9 +221,6 @@
              } else if (ADC < 650) {
                  //CAR IS PLACED
                  state = 1;
-                 
- //                servo_move(90);
- //                _delay_ms(1000);
                  
                  enable_spi_slave();
                  enable_servo(ROT_SERVO_PIN);
@@ -243,7 +239,7 @@
                  disable_spi_slave();
                  disable_servos();
                  US_init();
-                 state = 5;//2
+                 state = 2;
              } else {
                  float rot_amount = ((int)current_middle - 128)/2.5f;
                  current_rot_degrees = current_rot_degrees - rot_amount;
@@ -257,8 +253,8 @@
              US_deinit();
              enable_servo(RAMP_SERVO_PIN);
              //somewhere between -20 and 40
-             servo_move(40);
-             state = 5; //3
+             servo_move(-20);
+             state = 3;
          } else if (state == 3) {
              spin_motors(0.3f);
              printf("Spinning up motor...\n");
@@ -274,12 +270,12 @@
              printf("Launched.\n");
              enable_timer0_pwm();
          } else if (state == 4) {
-             printf("Moving MINI servo straight.\n");
              enable_servo(MINI_SERVO_PIN);
              servo_move(-45);
               _delay_ms(1000);
-              printf("Finished MINI servo.\n");
+              printf("Finished straightening servos.\n");
              state = 0;
+             printf("Waiting for car placement.\n");
          }
          
      }
