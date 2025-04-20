@@ -206,7 +206,20 @@ https://docs.google.com/presentation/d/1GcbwykO9LemA98kKRiCxgUSrDAbUXj3kivS9V8ku
 
 Motors are powered by wall outlet supply, and the connection is controlled by a PWM signal from our ATmega. 5V from the power pack supplies power for all other peripherals. Raspi captures images and processes important information we need, then sends it to ATmega via SPI. ATmega adjusts the direction our launcher is facing and the launcher ramp angle, as well as controls when the car is released, using servos, which it controls by adjusting duty cycles of PWMs.
 
-2. Explain your firmware implementation, including application logic and critical drivers you've written.
+2. Explain your firmware implementation, including application logic and critical drivers you've written.'
+
+The two code files are included in this repository, main.c and pi_code.cpp.
+
+Our logic works as follows. Upon booting, the first thing that the code does is move the servos to their original positions using 50Hz PWM signals at the duty cycle which corresponds with the desired angle. Timer0 is used for all of the servo PWM signals, since only one servo needs to be moved at a given time (we simply toggle a different pin depending on the active servo). This is state 4, the reset state, which then moves onto state 0 (the beginning of the control loop).
+
+The system starts in state 0, at which point the car has not yet been placed on the track. We read ADC values for the photoresistor to poll if the car is placed on the track, at which point we move to the next state. 
+
+At state 1, we implement our written SPI slave logic on the ATMega to read detected ramp position data from the Raspberry Pi, which includes toggling a SPI interrupt. The code then interprets that data and uses custom logic to write the appropriate rotational servo position in order to center the device at the ramp. Once the device is centered within a specified threshold of pixels, we then move onto the next state. The Raspberry Pi code uses libcamera to capture images, and opencv to iterate through the pixels and determine which ones are blue enough using euclidean distance (then taking the four cornermost blue pixels to determine a rectangle, from which height and center are calculated and transmitted).
+
+At state 2, we will use data from the ultrasonic sensor to determine how far away the ramp is. In combination with the ramp height in pixels, this will also be used to estimate how high the ramp is. This information will be used to calculate how fast the motors have to spin in order to launch the car far enough, as well as the offramp angle, which is written to the ramp servo. Afterwards, the code moves onto state 3.
+
+At state 3, the motors are spun with the previously calculated duty cycle PWM controlling current through them. The code delays half a second to allow them to spin up to the necessary velocity, and then moves the servo holding the car in position, allowing it to roll down the ramp and be accelerated through the motors. Immediately afterwards, the motors are turned off (control signal is now LOW), and we move onto state 4 once again, restarting the loop.
+
 3. Demo your device.
 
 https://drive.google.com/file/d/11PSLujxHKE1kDW2zSsZM_qNfQezweRF4/view?usp=sharing
@@ -228,6 +241,11 @@ https://drive.google.com/file/d/11LCYmlZeDFXLw2l9yC5v5ObOC3PMB_1I/view?usp=shari
 
    1. Show how you collected data and the outcomes.
 6. Show off the remaining elements that will make your project whole: mechanical casework, supporting graphical user interface (GUI), web portal, etc.
+
+   There are a couple of mechanical casework elements that are left to be done. First, we need a mount for the raspberry pi camera and the ultrasonic sensor to keep them straight for the device to target properly. Secondly, we need to make a base for the device to rotate on, or at least make the bottom heavier so that it can rotate properly.
+
+   The second remaining element is to determine a formula incorporating the ramp height in pixels and the ultrasonic distance measurement that will allow the ATMega to determine how high to raise the ramp and how fast to spin the motors for maximum accuracy. This will be done with a lot of testing to gather data points (and maybe a linear regression, although we may not have enough data). If we cannot get accurate enough, we will manufacture a funnel to catch the car even if it is a little off.
+
 7. What is the riskiest part remaining of your project?
 
 Possibly power components for motor shorting due to being too close to each other on the perfboard. (arcing?)

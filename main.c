@@ -28,7 +28,7 @@
  #define TIMER_PRESCALER 8
  #define US_TRIGGER PORTB1
  
- int state = 0;
+ int state = 2;
  //0 = waiting for car placement
  //1 = spi communication and rotational servo
  //2 = calculate distance and ramp servo
@@ -37,7 +37,7 @@
  
  //SERVO STUFF
  //current state of rotational servo
- int current_rot_degrees = 90;
+ float current_rot_degrees = 90.f;
  int current_servo;
  
  void disable_servos() {
@@ -48,19 +48,6 @@
  }
  void enable_timer0_pwm() {
      disable_servos();
-     
- //    TCCR0B |= (1 << WGM02);
- //    TCCR0A &= ~(1 << WGM01);
- //    TCCR0A |= (1 << WGM00);
- //    
- //    TCCR0B &= ~(1 << CS02); // 64 prescale
- //    TCCR0B |= (1 << CS01) | (1 << CS00);
- //
- //    OCR0A = 0;
- //    
- //    TCCR0A |= (1 << COM0A0);
- //    TIMSK0 |= (1 << OCIE0A);
-     DDRC |= (1 << PC4); // Set PC4 as output
  
      TCCR0B |= (1 << WGM02);
      TCCR0A &= ~(1 << WGM01);
@@ -80,34 +67,17 @@
      current_servo = pin;
  }
  ISR(TIMER0_COMPB_vect) {
-     if (current_servo == MINI_SERVO_PIN) {
-         PORTC ^= (1 << MINI_SERVO_PIN);
-     } else if (current_servo == ROT_SERVO_PIN) {
-         PORTC ^= (1 << ROT_SERVO_PIN);
-     } else if (current_servo == RAMP_SERVO_PIN) {
-         PORTC ^= (1 << RAMP_SERVO_PIN);
+     if (TCNT0 >= OCR0B) {
+         PORTC |= (1 << current_servo);
+     } else {
+         PORTC &= ~(1 << current_servo);
      }
+ //    PORTC ^= (1 << current_servo);
  }
  
- void servo_move(int degrees) {
+ void servo_move(float degrees) {
      float desired_duty = 0.05f + 0.05f * degrees/180.f;
      OCR0B = OCR0A - (int) (OCR0A * desired_duty);
-     cli();
-     if (current_servo == MINI_SERVO_PIN) {
-         PORTC &= ~(1 << current_servo);
-     } else {
-         PORTC |= (1 << current_servo);
-     }
-     TCNT0 = 0;
-     sei();
- //    float desired_ms = 1.f + 4*degrees/180.f;
- //    //16000000/prescale/(4*OCR0A + 1) = freq
- //    int val = (int) ((250 * desired_ms)/4.f);
- //    if (val > 255) {
- //        OCR0A = 255;
- //    } else {
- //        OCR0A = val;
- //    }
  }
  
  //SPI STUFF
@@ -239,20 +209,14 @@
      enable_servo(ROT_SERVO_PIN);
      servo_move(90);
      _delay_ms(1000);
- 
      printf("Finished ROT servo.\n");
-     printf("Moving MINI servo straight.\n");
-     enable_servo(MINI_SERVO_PIN);
-     servo_move(-45);
-      _delay_ms(1000);
-      printf("Finished MINI servo.\n");
      
      printf("Loop started.\n");
+     
      while (1) {
          if (state == 0) { //waiting for car to be placed
              ADCSRA |= (1 << ADSC);
              while (ADCSRA & (1 << ADSC));
- //            printf("%d\n", ADC);
              if (ADC == 0) {
                printf("ERR: NO POWER\n");  
              } else if (ADC < 650) {
@@ -274,22 +238,27 @@
              if (current_middle == 0xFF) {
                  //pass
                  
-             } else if (abs(current_middle - 128) <= 3) {
+             } else if (abs(current_middle - 128) <= 2) {
                  printf("Got to middle.\n");
                  disable_spi_slave();
                  disable_servos();
                  US_init();
-                 state = 2;
+                 state = 5;//2
              } else {
                  float rot_amount = ((int)current_middle - 128)/2.5f;
-                 current_rot_degrees = current_rot_degrees - round(rot_amount);
+                 current_rot_degrees = current_rot_degrees - rot_amount;
                  servo_move(current_rot_degrees); 
                  current_middle = 0xFF;
                  printf("Waiting for spi signal...\n");
              }
          } else if (state == 2) {
  //            trigger_sensor();
-             state = 3;
+             //TODO: ultrasonic
+             US_deinit();
+             enable_servo(RAMP_SERVO_PIN);
+             //somewhere between -20 and 40
+             servo_move(40);
+             state = 5; //3
          } else if (state == 3) {
              spin_motors(0.3f);
              printf("Spinning up motor...\n");
@@ -301,10 +270,16 @@
              disable_servos();
              _delay_ms(500);
              kill_motors();
-             US_deinit();
              state = 4;
-         } else if (state == 4) {
              printf("Launched.\n");
+             enable_timer0_pwm();
+         } else if (state == 4) {
+             printf("Moving MINI servo straight.\n");
+             enable_servo(MINI_SERVO_PIN);
+             servo_move(-45);
+              _delay_ms(1000);
+              printf("Finished MINI servo.\n");
+             state = 0;
          }
          
      }
