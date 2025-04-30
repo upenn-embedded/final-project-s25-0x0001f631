@@ -13,7 +13,7 @@ int fd;
 uint8_t bits;
 
 uint8_t send_spi(uint8_t byte1, uint8_t byte2) {
-    uint8_t tx[] = {byte1, byte2};
+    uint8_t tx[] = {0xFF, byte1, byte2};
     uint8_t rx[sizeof(tx)] = {0};
 
 struct spi_ioc_transfer tr;
@@ -96,7 +96,7 @@ if (looping) {
 
     cv::Vec3b targetColor(220, 60, 0); // BGR: (Blue, Green, Red)
 
-    double threshold = 55;
+    double threshold = 125;
 	double minDist = 10000;
     int leftmost = img.cols, rightmost = -1;
     int topmost = img.rows, bottommost = -1;
@@ -113,7 +113,7 @@ if (looping) {
 	    if (distance < minDist) {
 	    	minDist = distance;
 	    }
-	    if (distance < threshold) {
+	    if (distance < threshold && color[0] > color[1] * 2 && color[0] > color[2] * 2) {
 	    leftmost = std::min(leftmost, col);
                 rightmost = std::max(rightmost, col);
                 topmost = std::min(topmost, row);
