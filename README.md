@@ -5,7 +5,7 @@
 * Team Name: 😱
 * Team Members: Kevin Yao, Emil Schaumburg
 * GitHub Repository URL: https://github.com/upenn-embedded/final-project-s25-0x0001f631
-* GitHub Pages Website URL: [for final submission]
+* GitHub Pages Website URL: https://curly-adventure-vm75ogm.pages.github.io/
 
 ## Final Project Proposal
 
@@ -244,7 +244,7 @@ https://drive.google.com/file/d/11LCYmlZeDFXLw2l9yC5v5ObOC3PMB_1I/view?usp=shari
 
    There are a couple of mechanical casework elements that are left to be done. First, we need a mount for the raspberry pi camera and the ultrasonic sensor to keep them straight for the device to target properly. Secondly, we need to make a base for the device to rotate on, or at least make the bottom heavier so that it can rotate properly.
 
-   The second remaining element is to determine a formula incorporating the ramp height in pixels and the ultrasonic distance measurement that will allow the ATMega to determine how high to raise the ramp and how fast to spin the motors for maximum accuracy. This will be done with a lot of testing to gather data points (and maybe a linear regression, although we may not have enough data). If we cannot get accurate enough, we will manufacture a funnel to catch the car even if it is a little off.
+   The second remaining element is to determine a formula incorporating the ramp height in pixels and the ultrasonic distance measurement that will allow the ATMega to determine how high to raise the ramp and how fast to spin the motors for maximum accuracy. Ultrasonic code still has to be integrated. This will be done with a lot of testing to gather data points (and maybe a linear regression, although we may not have enough data). If we cannot get accurate enough, we will manufacture a funnel to catch the car even if it is a little off. 
 
 7. What is the riskiest part remaining of your project?
 
@@ -262,6 +262,8 @@ Seems like our parts (servos) don't always work at 5V (even though they should).
 
 Don't forget to make the GitHub pages public website!
 If you’ve never made a GitHub pages website before, you can follow this webpage (though, substitute your final project repository for the GitHub username one in the quickstart guide):  [https://docs.github.com/en/pages/quickstart](https://docs.github.com/en/pages/quickstart)
+
+### EVERYTHING IS ON OUR [PAGE](https://curly-adventure-vm75ogm.pages.github.io/)
 
 ### 1. Video
 
