@@ -5,7 +5,7 @@
 * Team Name: 😱
 * Team Members: Kevin Yao, Emil Schaumburg
 * GitHub Repository URL: https://github.com/upenn-embedded/final-project-s25-0x0001f631
-* GitHub Pages Website URL: [for final submission]
+* GitHub Pages Website URL: https://curly-adventure-vm75ogm.pages.github.io/
 
 ## Final Project Proposal
 
