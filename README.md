@@ -263,6 +263,8 @@ Seems like our parts (servos) don't always work at 5V (even though they should).
 Don't forget to make the GitHub pages public website!
 If you’ve never made a GitHub pages website before, you can follow this webpage (though, substitute your final project repository for the GitHub username one in the quickstart guide):  [https://docs.github.com/en/pages/quickstart](https://docs.github.com/en/pages/quickstart)
 
+### EVERYTHING IS ON OUR [PAGE](https://curly-adventure-vm75ogm.pages.github.io/)
+
 ### 1. Video
 
 [Insert final project video here]
